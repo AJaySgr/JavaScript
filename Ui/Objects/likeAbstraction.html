@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function user(email,pwd){
+        let emailid = email;
+        let password = pwd;
+
+        let getUserDetails = function(){
+            return ( `${emailid} ${password}` ); 
+        }
+        this.getUser = function(){
+            return (`${emailid} ${password}`);
+        }
+    }
+
+    let u1 = new user('ajay@gmail.com','123@qwer');
+    console.log(u1.emailid);
+    
+    console.log(u1.getUserDetails);
+    console.log(u1.getUser());
+    
+</script>
+<body>
+    <H2>like abstraction</H2>
+</body>
+</html>

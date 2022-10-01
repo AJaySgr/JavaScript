@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        
+        body{
+            background-color: rgb(20, 26, 109);
+        }
+        h2{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font: rgb(20, 26, 109);
+            font-weight: bold;
+        }
+        #login-div{
+            border: 2px solid rgb(244, 71, 71);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: fit-content;
+            padding: 40px 40px 40px 40px;
+            text-align: center;
+            margin: auto;
+            margin-top: 10%;
+            color: bisque;
+            background: transparent;
+            border-radius: 2pc;
+            background-color:  rgb(244, 71, 71);;
+        }
+        button{
+            background-color: white;
+            border: none;
+            color: rgb(244, 71, 71);
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 10px 10px 10px;
+            border-radius: 10px;
+            
+
+        }
+        button:hover{
+            background-color:rgb(20, 26, 109);
+        }
+    </style>
+    <script>
+        function validate(){
+        var email = document.getElementById("email").value;
+        var pswd = document.getElementById("pswd").value;
+        // alert(email+"  "+pswd);
+        if(email == "admin" && pswd == "admin123")
+            alert("User is valid :) ");
+        else
+            alert("Invalid user Bhaag Jao yha se!!");
+            
+            
+    }
+        function reset(){
+            document.getElementById("myForm").reset();
+        }
+    </script>
+    
+</head>
+<body>
+    <div id="login-div">
+        <h2>Details Chhaiye :)</h2>
+    <form id="myForm">
+             <input type="text" id="email" placeholder="Email"/> <br/><br/>
+            <input type="password" id="pswd" placeholder="Password"/> <br/><br/>
+            <button type="button" onclick="validate()" value="validate">validate</Button>
+            <button type="button" onclick="reset()" value="Reset">Reset</Button>
+    </form>
+</div>
+</body>
+</html>

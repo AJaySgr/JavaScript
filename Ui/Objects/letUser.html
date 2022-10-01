@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let user = function(email,pwd){
+        this.email=email;
+        this.pwd=pwd;
+
+        this.getUser = function(){
+            console.log(this.email+' '+this.pwd);
+        }
+    }
+
+    let t1= new user("ajay@gmailcom",'14334');
+    t1.getUser();
+    getUser();
+</script>
+<body>
+    
+</body>
+</html>

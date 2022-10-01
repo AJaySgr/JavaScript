@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+    <script>
+        function addition(){
+
+            var numOne = document.getElementById("num1").value;
+            var numSec = document.getElementById("num2").value;
+            var result;
+             result = parseInt(numOne) + parseInt(numSec);
+             document.getElementById("res").value=result;
+
+        }
+        //Substraction
+        function sub(){
+            var varOne = document.getElementById("n1").value;
+            var varSec = document.getElementById("n2").value;
+            var result;
+            result = parseInt(varOne) - parseInt(varSec);
+            document.getElementById("res1").value = result;
+        }
+        //Multiplication
+        function mul(){
+            var varOne = document.getElementById("num11").value;
+            var varSec = document.getElementById("num21").value;
+            var result;
+            result = parseInt(varOne) * parseInt(varSec);
+            document.getElementById("res2").value = result;
+
+        }
+        //Division
+        function div(){
+
+            var varOne = document.getElementById("num12").value;
+            var varSec = document.getElementById("num22").value;
+            var result;
+            result = parseInt(varOne) / parseInt(varSec);
+            document.getElementById("res3").value = result;
+        }
+
+        function funReset(){
+            document.getElementById("newform").reset();
+        //    alert("HelloDuniya");
+        }
+
+    </script>
+</head>
+<body>
+<form id="newform">
+<div style=" background-color: rgb(248, 90, 90); position: absolute; padding : 10px;">
+    <input type="number" id="num1" placeholder="Enter value"> +
+    <input type="number" id="num2" placeholder="Enter value"> =
+    <input type="number" id="res"> <br> </br>
+    <input type="button" value="ADD" onclick="addition()"> </br> <br>
+</div> <br><br> <br><br><br><br>
+    <!-- Substraction -->
+    <div style=" background-color: rgb(98, 239, 74); position: absolute; padding : 10px;">
+    <input type="number" id="n1" placeholder="Enter value"> -
+    <input type="number" id="n2" placeholder="Enter value"> =
+    <input type="number" id="res1"> <br> </br>
+    <input type="button" value="SUB" onclick="sub()"> </br> <br>
+    </div><br><br> <br><br><br><br>
+
+    <!-- Multiplication -->
+    <div style=" background-color: rgb(97, 133, 241); position: absolute; padding : 10px;">
+    <input type="number" id="num11" placeholder="Enter value"> *
+    <input type="number" id="num21" placeholder="Enter value"> =
+    <input type="number" id="res2"> <br> </br>
+    <input type="button" value="MUL" onclick="mul()"> </br>
+</div><br><br> <br><br><br><br>
+    <!-- Division -->
+    <div style=" background-color: rgb(194, 180, 99); position: absolute; padding : 10px;">
+    <input type="number" id="num12" placeholder="Enter value"> /
+    <input type="number" id="num22" placeholder="Enter value"> =
+    <input type="number" id="res3"> <br> </br>
+    <input type="button" value="DIV" onclick="div()"> </br>
+</div><br><br> <br><br><br><br>
+    <!-- Reset -->
+    <button type="button" value="Reset" onclick="funReset()"> reset</button>
+    
+</form>
+
+<!-- <footer>Hi Buddies</footer> -->
+
+
+    
+</body>
+</html>

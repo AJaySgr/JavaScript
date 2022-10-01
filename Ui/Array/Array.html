@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<script>
+    // array literals []
+    const names = ['Ajay','jay', 'Ajau','Gunther'];
+    // document.write(names[2]);
+
+    //Using with new keyword
+    const array=new Array('harry','Ajay','hola','rummy');
+    document.writeln("Before push "+"<br/>");
+    for(let i=0;i<array.length;i++){
+        document.writeln(i+1 +" "+array[i]+"<br/>");
+    }
+    document.writeln("after push "+"<br/>");
+    array.push('Gunther');
+    for(let i=0;i<array.length;i++){
+        document.writeln(i+1 +" "+array[i]+"<br/>");
+    }
+
+    document.writeln("++++++++++++++++++++++POP+++++++++++++++++++++++++++"+"<br/>");
+    array.pop();
+    for(let i=0;i<array.length;i++){
+        document.writeln(i+1 +" "+array[i]+"<br/>");
+    }
+
+
+</script>
+<body>
+    <h2>Sample Array</h2>
+</body>
+</html>

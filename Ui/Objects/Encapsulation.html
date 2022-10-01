@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    class user{
+        constructor(email,pwd){
+            this.email=email;
+            this.pwd=pwd;
+        }
+
+        setUser(isLoggedIn){
+            this.isLoggedIn=isLoggedIn;
+        }
+
+        getUser(){
+            console.log(this.email+" "+this.pwd+" "+this.isLoggedIn);
+        }
+    }
+    let u1 = new user('ajay@gmail.com','1234@1ewq');
+    u1.setUser(true);
+    u1.getUser();
+</script>
+<body>
+    <h2>encapsulation</h2>
+</body>
+</html>

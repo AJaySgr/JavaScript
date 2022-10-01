@@ -1,0 +1,44 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "productName": "Phone",
+      "productBrand": "Samsung",
+      "productModel": "A51 8GB 256GB",
+      "productColor": "Moon white",
+      "productPrice": 30000
+    },
+    {
+      "id": 2,
+      "productName": "Phone",
+      "productBrand": "Iphone",
+      "productModel": "14 pro max 1TB",
+      "productColor": "Ocean blue",
+      "productPrice": 150000
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Vivo",
+      "productModel": "V21 5G 8GB 256GB",
+      "productColor": "Blue",
+      "productPrice": 40500,
+      "id": 3
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "MI",
+      "productModel": "Xiaomi 12 ultra",
+      "productColor": "Matte Black",
+      "productPrice": 60000,
+      "id": 4
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Oppo",
+      "productModel": "F11 8GB 256GB",
+      "productColor": "Blue",
+      "productPrice": 16500,
+      "id": 5
+    }
+  ]
+}

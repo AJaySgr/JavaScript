@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cal of Marks</title>
+</head>
+<script>
+    function getTotal(){
+        var eng = document.getElementById("eng").value;
+        var hin = document.getElementById("hin").value;
+        var sci = document.getElementById("sci").value;
+        var soc = document.getElementById("soc").value;
+        var mat = document.getElementById("mat").value;
+        var result;
+
+        result = parseInt(eng) + parseInt(hin)+parseInt(sci)+parseInt(soc)+parseInt(mat);
+        alert("Total : "+result);
+        
+    }
+    
+    function getClear(){
+        document.getElementById("res").reset();
+    }
+</script>
+<body>
+    <div>
+        <h2>Please Enter the Marks</h2>
+        <hr>
+        <form id="res">
+        <input type="text" id="eng" placeholder="English" /> <br><br>
+        <input type="text" id="hin" placeholder="Hindi" /> <br><br>
+        <input type="text" id="sci" placeholder="Science" /> <br><br>
+        <input type="text" id="soc" placeholder="Social Science" /> <br><br>
+        <input type="text" id="mat" placeholder="Math" /> 
+    </form>
+        <hr>
+        <input type="submit" onclick="getTotal()" value="Get Total" />
+        <input type="button" onclick="getClear()" value="Reset" />
+    </div>
+</body>
+</html>

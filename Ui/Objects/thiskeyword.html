@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // objects through constructor
+    function user(email,password){
+        this.email=email;
+        this.password=password;
+        this.getInfo = function(){
+        console.log(this.email+" "+this.password);
+    }
+
+    }
+
+    let u1 = new user('ram@gmail.com','123@ram');
+    let u2 = new user('word@gmail.com','456@word');
+
+    // console.log(u1.email+"  "+u1.password);
+    // console.log(u2.email+"  "+u2.password);
+    u1.getInfo();
+</script>
+<body>
+    <h2>this keyword</h2>
+</body>
+</html>

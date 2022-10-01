@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+        let str = 'Hello world!!';
+                //0123
+        let tot = str.length;
+
+        console.log(tot);
+        console.log(str.indexOf('or'));
+
+
+
+
+    // let is blocked scope
+    let num=4;
+    function welCome(){
+        // var is function scoped
+        let num=13;
+        var msg = 'aaiye aapka intezaar tha :)';
+        let lenOfString = msg.length;
+        console.log("Inside the function "+num);
+        console.log(msg);
+        console.log("total number of char "+lenOfString)
+        document.writeln(msg);
+    }
+    console.log("outside the function "+num);
+    welCome();
+</script>
+<body>
+    
+</body>
+</html>
