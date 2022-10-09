@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function val(){
+    var v1 = parseInt(document.all.num1.value);
+    var v2 = parseInt(document.all.num2.value);
+    var v3=0;
+
+    try{
+        if(v2 == 0){
+            throw "Divisor is zero"}
+        if(v1 == 0){
+            throw "to be divided is Zero"}
+        
+    }catch(e){
+        alert(e);
+    }
+}
+</script>
+<body>
+    <input type="text" id="num1" placeholder="Value 1" /><br>
+    <input type="text" id="num2" placeholder="Value 2" /><br>
+    <input type="button" id="b1" Value="ClickME" onclick="val()" />
+</body>
+</html>

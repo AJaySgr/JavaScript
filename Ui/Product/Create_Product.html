@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Mannual</title>
+</head>
+<style>
+           
+        #product-cre{
+            border: 2px solid blueviolet;
+            background-color: rgb(199, 170, 225);
+            border-radius: 1pc;
+            height: fit-content;
+            width: fit-content;
+            padding: 20px 20px 20px 20px;
+            text-align: center;
+            margin: auto;
+            margin-top: 5%;
+            font-size: 24px;
+            
+
+        }
+        button:hover{
+            background-color:blueviolet;
+        }
+        input{
+            color: rgba(var(--f52,142,142,142),1);
+            font-size: 12px;
+            border-radius: 0.5pc;
+            text-align: center;
+            height: 26px;
+            left: 8px;
+            line-height: 36px;
+            width: 200px;
+            right: 0;
+
+        }
+        button {
+            border-radius: 1pc;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+            font-size : 12px;
+            height: 26px;
+            left: 8px;
+            line-height: 16px;
+            width:200px;
+            
+        }
+        h2{
+            font-family: Brush Script MT;
+            color: blueviolet;
+            opacity: 100px;
+            
+        }
+
+</style>
+<script>
+
+function saveProductDetails(){
+    var productName = document.getElementById("Pname").value;
+    var productBrand = document.getElementById("Pbrand").value;
+    var productModel = document.getElementById("Pmodel").value;
+    var productColor = document.getElementById("Pcolor").value;
+    var productPrice = document.getElementById("Pprice").value;
+    // alert("hello "+productBrand);
+
+    fetch("http://localhost:3000/product",{
+        method:"POST",
+        body:JSON.stringify({"productName": productName,
+                            "productBrand": productBrand,
+                            "productModel": productModel,
+                            "productColor": productColor,
+                            "productPrice": productPrice}),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }).then(response=>response.json())
+        .then(response=>{
+            console.log(response)
+           
+                     
+        });
+        alert("Data has been saved :) ");
+}
+
+function resetDetails(){
+    document.getElementById("userPanel").reset();
+}
+     
+</script>
+<body>
+    <div id="product-cre" >
+        <h2>Create product </h2>
+        <form id="userPanel">
+            <input type="text" id="Pname" placeholder="Enter type of product" /><br><br>
+            <input type="text" id="Pbrand" placeholder="Enter the brand Name"/><br><br>
+            <input type="text" id="Pmodel" placeholder="Enter the model"/><br><br>
+            <input type="text" id="Pcolor" placeholder="Enter the color"/><br><br>
+            <input type="text" id="Pprice" placeholder="Enter the price"/><br><br>
+            <button type="button" value="Save" onclick="saveProductDetails()">Save</button>
+            <button type="button" value="Clear" onclick="resetDetails()">Clear</button>
+
+        </form>
+        
+    </div>
+</body>
+</html>

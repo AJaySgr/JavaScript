@@ -29,7 +29,7 @@
       "productBrand": "MI",
       "productModel": "Xiaomi 12 ultra",
       "productColor": "Matte Black",
-      "productPrice": 60000,
+      "productPrice": 70000,
       "id": 4
     },
     {
@@ -39,6 +39,62 @@
       "productColor": "Blue",
       "productPrice": 16500,
       "id": 5
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Mi ",
+      "productModel": "12  ProUltra 8GB 128GB",
+      "productColor": "Moon white",
+      "productPrice": "90000",
+      "id": 6
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Mi ",
+      "productModel": "11  Pro 6GB 256GB",
+      "productColor": "Space blue",
+      "productPrice": "25000",
+      "id": 7
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Mi ",
+      "productModel": "11  Pro 6GB 256GB",
+      "productColor": "Space blue",
+      "productPrice": "25000",
+      "id": 8
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Samsung",
+      "productModel": "S21",
+      "productColor": "White",
+      "productPrice": "65000",
+      "id": 9
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Samsung",
+      "productModel": "S21",
+      "productColor": "White",
+      "productPrice": "65000",
+      "id": 10
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Apple",
+      "productModel": "11pro 256GB",
+      "productColor": "Yellow",
+      "productPrice": "75000",
+      "id": 11
+    },
+    {
+      "productName": "Phone",
+      "productBrand": "Samsung",
+      "productModel": "S22 ultra 8gb 256GB",
+      "productColor": "Mette Black",
+      "productPrice": "80000",
+      "id": 12
     }
   ]
 }
