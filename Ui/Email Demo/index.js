@@ -1,9 +1,9 @@
 function sendMail(parms){
     var tempParms{
-        form_name : document.getElementById("formName").value,
-        to_name :  document.getElementById("toName").value,
-        msg: document.getElementById("msg").value, 
-    };
+        form_name   : document.getElementById("formName").value;
+        to_name :  document.getElementById("toName").value;
+        msg: document.getElementById("msg").value;
+    }
 
     emailjs.send('gmail','template_hzpn2i8',tempParms)
         .then(function(res){

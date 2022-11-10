@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>CSS</li>
+    </ul>
+    <script>
+        let list=document.querySelector("#list");
+        list.insertAdjacentHTML('beforeBegin','<h2>Web Technology</h2>');
+        list.insertAdjacentHTML('Afterbegin','<h2>HTML</h2>');
+        list.insertAdjacentHTML('beforeend','<h2>JavaScript</h2>');
+        list.insertAdjacentHTML ('Afterend','<h2>Learning web app development</h2>');
+    </script>
+</body>
+</html>

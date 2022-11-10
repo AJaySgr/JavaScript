@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <ul id="language"></ul>
+    <script>
+        let lang = ['JS','TypeScipt','Dart','Scala'];
+        let lang1 = document.querySelector('#language');
+        let fragment =  new DocumentFragment();
+
+        lang.forEach((language)=>{
+            let li = document.createElement('li');
+            li.innerHTML=language;
+            fragment.appendChild(li);
+        })
+        lang1.appendChild(fragment);
+    </script>
+</body>
+</html>

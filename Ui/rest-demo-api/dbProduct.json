@@ -95,6 +95,14 @@
       "productColor": "Mette Black",
       "productPrice": "80000",
       "id": 12
+    },
+    {
+      "productName": "phone",
+      "productBrand": "MI",
+      "productModel": "13pro max",
+      "productColor": "white",
+      "productPrice": "120000",
+      "id": 13
     }
   ]
 }

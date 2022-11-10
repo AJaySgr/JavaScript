@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="app">
+        <li>Mean Stack</li>
+    </ul>
+</body>
+<script>
+    let app = document.querySelector('#app');
+    let langs = ['TypeScript','HTML5','React','CSS3'];
+
+    let nodes = langs.map((lib)=>{
+        const item=document.createElement('li');
+        item.innerText=lib;
+        return item;
+    });
+    app.append(...nodes);
+</script>
+</html>

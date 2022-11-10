@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript getElementsByTagName() Demo</h1>
+    <h2>first Heading</h2>
+    <p>THis is the first para</p>
+    <h2>Second Heading</h2>
+    <p>This is the second para</p>
+    <h2>Third Heading </h2>
+    <p>THis is the third para</p>
+    <button id="btnCount"> Count H2</button>
+</body>
+<script>
+    let btn=document.getElementById('btnCount');
+    btn.addEventListener('click',()=>{
+        let heading=document.getElementsByTagName('h2');
+        alert(`The number of H2 tags: ${heading.length}`);
+    });
+</script>
+</html>

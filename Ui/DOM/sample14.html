@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>JS DOM - after()</h1>
+    <script>
+        const h1=document.querySelector('h1');
+        const p = document.createComment('p');
+        p.innerText = 'This is Javascript DOM after method demo'
+        h1.after('p');
+    </script>
+</body>
+</html>
