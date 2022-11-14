@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Box</title>
+</head>
+<body>
+
+    <div>
+        <input type="radio" name="size" value="S" id="S">
+        <label for="s">S</label>
+    </div>   
+
+    <div>
+        <input type="radio" name="size" value="M" id="M">
+        <label for="M">M</label>
+    </div>   
+
+    <div>
+        <input type="radio" name="size" value="L" id="L">
+        <label for="L">L</label>
+    </div>   
+
+    <div>
+        <input type="radio" name="size" value="XL" id="xl">
+        <label for="XL">XL</label>
+    </div>   
+
+<div>
+    <input type="radio" name="size" value="XXL" id="xxl">
+    <label for="xs">XXL</label>
+</div>    
+
+<p id="output">
+    <button id="btn">Show Seleceted Value</button>
+</p>
+</body>
+<script>
+    const btn=document.querySelector('#btn');
+    const radioButtons = document.querySelectorAll(`input[name="size"]`);
+    console.log(radioButtons);
+    btn.addEventListener('click',()=>{
+        let selectedSize;
+        for(const radioButton of radioButtons){
+            if(radioButton.checked){
+                selectedSize=radioButton.value;
+                break;
+            }
+        }
+        output.innerText=selectedSize?`You have selected :${selectedSize}`:`You have not selected`;
+    })
+</script>
+</html>
