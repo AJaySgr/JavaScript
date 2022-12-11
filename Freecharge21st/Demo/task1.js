@@ -1,63 +1,27 @@
-// const fs=require('fs');
-// csv = fs.readFileSync("cities.csv");
-// let arr=csv.toString().split("\r");
-// let result=[];
-// let headers = arr[0].split(", ");
-// for(let i=0;i<arr.length;i++){
-//     let obj={}
-
-//     let str=arr[i];
-//     let s='';
-
-//     let flag;
-//     for(let ch of str){
-//         if(ch==='"' && flag===0){
-//             flag=1
-//         }else if(ch==='"' && flag===1)flag=0
-//             if(ch===', '&& flag===0)ch='|'
-//             if(ch!=='"')s+=ch;
-//     }
-//     console.log("Hola",s);
-//     let properties=s.split("|");
-//     console.log(properties);
-
-//     for(let k in headers){
-//         if(properties[k]){
-//             obj[headers[k]]=properties[k].split(", ").map(item=>item.trim())
-
-//         }else{
-//             obj[headers[k]]=properties[k];
-//         }
-    
-//     }
-// result.push(obj);
-//     }
-
-
-
-// console.log("Array :",result);
-// let jsonfile = JSON.stringify(result);
-// fs.writeFileSync('output.json',jsonfile);
-
-
-
-
-
-
-
-
-
-
-
-
 const http=require('http');
 const fs=require('fs');
 let server = http.createServer((req,res)=>{
     //res.end('welcome to nodejs!!!');
     fs.readFile('cities.csv',(err,data)=>{
         if(!err){
+            var array = data.toString().split("\n");
+            var result = [];
+            var headers = array[0].split(", ");
+            for (let i = 1; i < array.length; i++) {
+                var obj = {}
+            
+                var properties = array[i].split(',')
+            
+            for(var j=0;j<headers.length;j++){
+                obj[headers[j]]=properties[j];
+            }
+                result.push(obj);
+            }
+            console.log(result);
+            let json = JSON.stringify(result);
+
             res.setHeader('Content-type','application/json');
-            res.end(data);
+            res.end(json);
         }
     });
 });
