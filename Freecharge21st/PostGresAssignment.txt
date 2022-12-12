@@ -1,0 +1,170 @@
+
+Assignment List:
+	---------------
+
+
+		 	Assignment 21:
+		 	--------------
+				Create a Table with name : BRANCH
+				with fields: BRANCH_CODE CHAR(4) NOT NULL
+					     BRANCH_NAME VARCHAR(40) NOT NULL	     
+					     BRANCH_ADDRESS1 VARCHAR(60) NOT NULL
+					     BRANCH_ADDRESS2 VARCHAR(60)
+					     BRANCH_CITY VARCHAR(30) NOT NULL
+					     BRANCH_ZIP VARCHAR(10) NOT NULL
+					     BRANCH_STATE CHAR(2) NOT NULL
+
+
+denabankdb=# create table branch(branch_code char(4) NOT NULL,branch_name varchar(40) NOT NULL, branch_address1 varchar(60) NOT NULL,branch_address2 varchar(60), branch_city varchar(30) NOT NULL,branch_zip varchar(10) NOT NULL,branch_state char(2) NOT NULL);
+CREATE TABLE
+
+	
+		
+			     	Create a Table with name : CUSTOMER
+			     	with fields:
+					CUST_NO  INT NOT NULL
+					BRANCH_CODE CHAR(4) NOT NULL
+					CUST_USERNAME VARCHAR(16) NOT NULL
+					CUST_PASSWORD VARCHAR(10) NOT NULL
+					CUST_EMAIL VARCHAR(40)
+					CUST_TITLE VARCHAR(3) NOT NULL
+					CUST_GIVENNAMES VARCHAR(40) NOT NULL
+					CUST_SURNAME VARCHAR(40) NOT NULL
+					CUST_ADDRESS1 VARCHAR(60) NOT NULL
+					CUST_ADDRESS2 VARCHAR(60) 
+					CUST_CITY VARCHAR(30) NOT NULL
+					CUST_ZIP VARCHAR(10) NOT NULL
+					CUST_STATE CHAR(2) NOT NULL
+create table customer(cust_no int NOT NULL,branch_code char(4) NOT NULL,cust_username varchar(16) NOT NULL,cust_password varchar(10) NOT NULL,cust_email varchar(40),cust_title varchar(3) NOT NULL,cust_givenames varchar(40) NOT NULL,cust_surename varchar(40) NOT NULL,cust_address1 varchar(60) NOT NULL,cust_address2 varchar(60),cust_city varchar(30) NOT NULL, cust_zip varchar(10) NOT NULL,cust_state char(2) NOT NULL)
+denabankdb-# ;
+CREATE TABLE
+ 
+
+				Create a Table with name : ACCOUNT_TYPE
+			     	with fields:
+					ACCTYPE_ID CHAR(3) NOT NULL
+					ACCTYPE_DESC VARCHAR(30) NOT NULL
+					ACCTYPE_INTERESTRATE DECIMAL(4,2) DEFAULT 0.0
+
+create table account_type(acctype_id char(3) NOT NULL,acctype_desc varchar(30) NOT NULL,acctype_interestrate decimal(4,2) DEFAULT 0.0);
+CREATE TABLE
+
+				Create a Table with name : ACCOUNT
+			     	with fields:
+					BRANCH_CODE  CHAR(4)  NOT NULL
+					ACC_NO  CHAR(8) NOT NULL		
+					CUST_NO  INT  NOT NULL
+					ACCTYPE_ID CHAR(3) NOT NULL
+					ACC_BALANCE DECIMAL(10,2) DEFAULT 0.0
+
+create table account(branch_code char(4) NOT NULL,acc_no char(8) NOT NULL,acctype_id char(3) NOT NULL,acc_balance decimal(10,2) default 0.0);
+CREATE TABLE
+
+				Create a Table with name : TRANSACTION_TYPE
+			     	with fields:
+					TRANSTYPE_ID CHAR(4) NOT NULL
+					TRANSTYPE_DESC VARCHAR(40) NOT NULL
+
+create table transaction_type(transtype_id char(4) NOT NULL,transtype_desc varchar(40) NOT NULL);
+CREATE TABLE
+
+				Create a Table with name : TRANSACTION_HISTORY
+			     	with fields:
+					TRANS_ID LONGINT NOT NULL
+					BRANCH_CODE CHAR(4) NOT NULL
+					ACC_NO  CHAR(8) NOT NULL
+					TRANSTYPE_ID  CHAR(4) NOT NULL
+					TRANS_POSTDATE TIMESTAMP NOT NULL
+					TRANS_DESC VARCHAR(40)
+					TRANS_AMOUNT DECIMAL(10,2) NOT NULL
+
+create table transaction_history(trans_id bigint NOT NULL,branch_code char(4) not null,acc_no char(8) NOT NULL,transtype_id char(4) NOT NULL,trans_postdate timestamp not null,trans_desc varchar(40),trans_amount decimal(10,2) not null);
+CREATE TABLE
+
+			Assignment 22:
+			--------------
+					Write a SQL statement to add a primary key for the columns BRANCH_CODE in the BRANCH table.
+
+
+denabankdb=# ALTER TABLE branch ADD PRIMARY KEY (branch_code);
+ALTER TABLE
+denabankdb=# \d branch
+                          Table "public.branch"
+     Column      |         Type          | Collation | Nullable | Default
+-----------------+-----------------------+-----------+----------+---------
+ branch_code     | character(4)          |           | not null |
+ branch_name     | character varying(40) |           | not null |
+ branch_address1 | character varying(60) |           | not null |
+ branch_address2 | character varying(60) |           |          |
+ branch_city     | character varying(30) |           | not null |
+ branch_zip      | character varying(10) |           | not null |
+ branch_state    | character(2)          |           | not null |
+Indexes:
+    "branch_pkey" PRIMARY KEY, btree (branch_code)
+
+
+			
+			Assignment 23:
+			--------------
+					Write a SQL statement to add a foreign key constraint named fk_branch_code on branch_code column 
+					on Branch_Code of Customer Table referencing to the primary key Branch_Code of Branch Table.
+
+
+ALTER TABLE customer ADD CONSTRAINT fk_branch_code FOREIGN KEY (branch_code) REFERENCES branch(branch_code);
+ALTER TABLE
+denabankdb=# \d customer;
+                         Table "public.customer"
+     Column     |         Type          | Collation | Nullable | Default
+----------------+-----------------------+-----------+----------+---------
+ cust_no        | integer               |           | not null |
+ branch_code    | character(4)          |           | not null |
+ cust_username  | character varying(16) |           | not null |
+ cust_password  | character varying(10) |           | not null |
+ cust_email     | character varying(40) |           |          |
+ cust_title     | character varying(3)  |           | not null |
+ cust_givenames | character varying(40) |           | not null |
+ cust_surename  | character varying(40) |           | not null |
+ cust_address1  | character varying(60) |           | not null |
+ cust_address2  | character varying(60) |           |          |
+ cust_city      | character varying(30) |           | not null |
+ cust_zip       | character varying(10) |           | not null |
+ cust_state     | character(2)          |           | not null |
+Foreign-key constraints:
+    "fk_branch_code" FOREIGN KEY (branch_code) REFERENCES branch(branch_code)
+
+			Assignment 24:
+			--------------
+					Write a SQL statement to change the email column of the CUSTOMER table.
+
+alter table customer rename cust_email to email;
+ALTER TABLE
+denabankdb=# \d customer;
+                         Table "public.customer"
+     Column     |         Type          | Collation | Nullable | Default ----------------+-----------------------+-----------+----------+--------- cust_no        | integer               |           | not null |
+ branch_code    | character(4)          |           | not null |
+ cust_username  | character varying(16) |           | not null |
+ cust_password  | character varying(10) |           | not null |
+ email          | character varying(40) |           |          |
+ cust_title     | character varying(3)  |           | not null |
+ cust_givenames | character varying(40) |           | not null |
+ cust_surename  | character varying(40) |           | not null |
+ cust_address1  | character varying(60) |           | not null |
+ cust_address2  | character varying(60) |           |          |
+ cust_city      | character varying(30) |           | not null |
+ cust_zip       | character varying(10) |           | not null |
+ cust_state     | character(2)          |           | not null |
+Foreign-key constraints:
+    "fk_branch_code" FOREIGN KEY (branch_code) REFERENCES branch(branch_code)
+
+
+			Assignment 25:
+			--------------
+
+					Write a SQL statement to change the TRANS_AMOUNT of an TRANSACTION_HISTORY to 8000, 
+					if the existing TRANS_AMOUNT is less than 5000.
+
+
+				   UPDATE TRANSACTION_HISTORY SET TRANS_AMOUNT= 8000 WHERE TRANS_AMOUNT < 5000;
+
+
+				

@@ -1,0 +1,244 @@
+## MongoDB Assignment
+
+### Objective
+Write MongoDB queries to understand basic CRUD operations in mongoDB database.
+
+### Problem Statement
+Create MongoDB queries based on high level requirements
+
+### High Level Requirements
+- Create a collection Products & insert the rows into the created collection as per below and add the script in text file.
+
+| ProductID | Name     | Brand    | Quantity | Price |
+|-----------|----------|----------|:--------:|-------|
+|P001       |Laptop    |Dell      |5         |32000  |
+|P002       |Tablet    |Lenovo    |7         |15000  |
+|P003       |Camera    |Nikon     |3         |22000  |
+|P004       |Smartphone|Samsung   |8         |25000  |
+|P005       |Speaker   |Bose      |4         |12000  |
+
+
+
+====================================================================================================================
+Products> db.createCollection('Products')
+{ ok: 1 }
+Products> show collections
+Products
+Products> db.Products.find()
+
+Products> db.Products.find().pretty(
+... )
+
+Products> db.Products.insert([{"ProductID":"P001","Name":"Laptop","Brand":"Dell","Quantity":"5","Price":"32000"},{"ProductID":"P002","Name":"Tablet","Brand":"Lenovo","Quantity":"7","Price":"15000"}])
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("637fae46b0fbc777e80014f2"),
+    '1': ObjectId("637fae46b0fbc777e80014f3")
+  }
+}
+
+ db.Products.insert([{"ProductID":"P003","Name":"Camera","Brand":"Nikon","Quantity":"3","Price":"22000"},{"ProductID":"P004","Name":"Smartphone","Brand":"Samsung","Quantity":"8","Price":"25000"},{"ProductID":"P005","Name":"Speaker","Brand":"Bose","Quantity":"4","Price":"12000"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("637faf2db0fbc777e80014f7"),
+    '1': ObjectId("637faf2db0fbc777e80014f8"),
+    '2': ObjectId("637faf2db0fbc777e80014f9")
+  }
+}
+
+
+db.Products.find()
+[
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f2"),
+    ProductID: 'P001',
+    Name: 'Laptop',
+    Brand: 'Dell',
+    Quantity: '5',
+    Price: 32000
+  },
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f3"),
+    ProductID: 'P002',
+    Name: 'Tablet',
+    Brand: 'Lenovo',
+    Quantity: '7',
+    Price: 15000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f7"),
+    ProductID: 'P003',
+    Name: 'Camera',
+    Brand: 'Nikon',
+    Quantity: '3',
+    Price: 22000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f8"),
+    ProductID: 'P004',
+    Name: 'Smartphone',
+    Brand: 'Samsung',
+    Quantity: '8',
+    Price: 25000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f9"),
+    ProductID: 'P005',
+    Name: 'Speaker',
+    Brand: 'Bose',
+    Quantity: '4',
+    Price: 12000
+  }
+]
+
+
+
+
+1.- Query1 - Fetch the row from Products collection where ProductID=P003
+ db.Products.find({ProductID:"P003"}).pretty()
+[
+  {db.
+    _id: ObjectId("637faf2db0fbc777e80014f7"),
+    ProductID: 'P003',
+    Name: 'Camera',
+    Brand: 'Nikon',
+    Quantity: '3',
+    Price: '22000'
+  }
+]
+
+
+- Query2 - Fetch the rows from Products collection where Price range between 10000 and 20000
+Solution :  db.Products.find({$and:[{Price:{$gt:10000}},{Price:{$lt:20000}}]})
+[
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f3"),
+    ProductID: 'P002',
+    Name: 'Tablet',
+    Brand: 'Lenovo',
+    Quantity: '7',
+    Price: 15000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f9"),
+    ProductID: 'P005',
+    Name: 'Speaker',
+    Brand: 'Bose',
+    Quantity: '4',
+    Price: 12000
+  }
+]
+
+- Query3 - Fetch the rows from Products collection where Quantity>5
+Solution : db.Products.find( { Quantity: { $gt: "5" } } )
+[
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f3"),
+    ProductID: 'P002',
+    Name: 'Tablet',
+    Brand: 'Lenovo',
+    Quantity: '7',
+    Price: 15000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f8"),
+    ProductID: 'P004',
+    Name: 'Smartphone',
+    Brand: 'Samsung',
+    Quantity: '8',
+    Price: 25000
+  }
+]
+- Query4 - Fetch the rows from Products collection where product name contains `top` as last three letters for its name.
+
+- Query5 - Fetch the rows from Products collection where the price of the product is not greater than 20000
+Solutions : db.Products.find( { Price: { $not: { $gt: 20000 } } } )
+[
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f3"),
+    ProductID: 'P002',
+    Name: 'Tablet',
+    Brand: 'Lenovo',
+    Quantity: '7',
+    Price: 15000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f9"),
+    ProductID: 'P005',
+    Name: 'Speaker',
+    Brand: 'Bose',
+    Quantity: '4',
+    Price: 12000
+  }
+]
+- Query6 - Write a MongoDB query to arrange the name of the products in descending order along with all the columns.
+Solution:db.Products.find().sort({Name:-1})
+[
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f3"),
+    ProductID: 'P002',
+    Name: 'Tablet',
+    Brand: 'Lenovo',
+    Quantity: '7',
+    Price: 15000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f9"),
+    ProductID: 'P005',
+    Name: 'Speaker',
+    Brand: 'Bose',
+    Quantity: '4',
+    Price: 12000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f8"),
+    ProductID: 'P004',
+    Name: 'Smartphone',
+    Brand: 'Samsung',
+    Quantity: '8',
+    Price: 25000
+  },
+  {
+    _id: ObjectId("637fae46b0fbc777e80014f2"),
+    ProductID: 'P001',
+    Name: 'Laptop',
+    Brand: 'Dell',
+    Quantity: '5',
+    Price: 32000
+  },
+  {
+    _id: ObjectId("637faf2db0fbc777e80014f7"),
+    ProductID: 'P003',
+    Name: 'Camera',
+    Brand: 'Nikon',
+    Quantity: '3',
+    Price: 22000
+  }
+]
+- Query7 - Write a query to calculate the total sum of all products in Products collection.
+Solutions : db.Products.aggregate([{ $group: {_id:null, Sum_of_Price: { $sum: "$Price" } } }])
+	[ { _id: null, Sum_of_Price: 106000 } ]
+
+- Query8 - Write a query to calculate the multiplication of Quantity & Price as Total and display along with all the columns.
+- Query9 - Write a query to change the Price to 20000 where ProductID=P002
+db.Products.update({ProductID:'P002'},{$set: {'Price':20000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+- Query10 - Write a query to delete the row from Products collection with Brand=Samsung
+db.Products.deleteOne({Brand:"Samsung"})
+
+
+
+
+
+
+
+
