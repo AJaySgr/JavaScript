@@ -1,0 +1,8 @@
+{
+    "data":[
+{"latitude": "12.366037", "userid": 1, "name": "Ajay", "longitude": "78.179118","distance":101},
+{"latitude": "14.180238", "userid": 2, "name": "Divyansh", "longitude": "-5.920898","distance":91},
+{"latitude": "14.374208", "userid": 3, "name": "Gaurav", "longitude": "78.371639","distance":100},
+{"latitude": "13.74412", "userid": 4, "name": "Karthik", "longitude": "76.11167","distance":89}
+]
+}

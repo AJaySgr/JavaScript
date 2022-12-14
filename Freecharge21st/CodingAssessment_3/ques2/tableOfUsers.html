@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+</head>
+<style>
+    #User-Data{
+            border: 2px solid rgba(var(--f52,142,142,142),1);
+            background-color:  rgb(202, 149, 245);
+            border-radius: 1pc;
+            height: fit-content;
+            width: fit-content;
+            padding: 20px 20px 20px 20px;
+            text-align: center;
+            margin: auto;
+            margin-top: 5%;
+            font-size: 24px;}
+    
+     
+         table, th, td {
+         border: 1px solid blueviolet;
+         background-color: rgb(202, 149, 245);
+         text-align: center;
+         font-size: 15px;
+         font-weight: normal;
+         box-sizing: border-box;
+         border: auto;
+         
+        }
+        h2{
+            font-size: 40px;
+            text-align: left;
+            font-family: Brush Script MT;
+            color: blueviolet;
+           
+            
+        }
+</style>
+<script>
+    fetch("http://localhost:3000/Data",{
+        method:"GET",
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }).then(response=>response.json())
+        .then(response=>{
+            console.log(response)
+            let tab =  `<tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Distance</th>
+                        </tr><br>`;
+                            for(let f of response){
+                                if(f.distance<=100){
+                                tab += `<tr>
+                                    <td>${f.userid}</td>
+                                    <td>${f.name}</td>
+                                    <td>${f.latitude}</td>
+                                    <td>${f.longitude}</td>
+                                    <td>${f.distance}</td><br>
+                                       
+                        <tr>`
+                        }else{continue;}
+                            }
+                            document.getElementById("UserData").innerHTML=tab;
+        });
+</script>
+<body>
+    <div id="User-Data">
+        <h2> <b>Data</b> are </h2>
+        <table id="UserData"></table>
+    </div>
+</body>
+</html>
