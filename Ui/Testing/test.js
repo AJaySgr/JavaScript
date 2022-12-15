@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 var cal = require('./add');
-const  Chef = require('./index');
+//const  Chef = require('./index');
 
 var sum = require('./sum');
 
@@ -36,7 +36,7 @@ describe("#Sum()",function(){
 
     context('With Number argument',function(){
         it('Should return sum of arguments',function(){
-            expect(sum(1,2,3,4,5,6)).to.equal(15);
+            expect(sum(1,2,3,4,5,6)).to.equal(14);
         })
         it('Should return argument when only one argument is passes',function(){
             expect(sum(5)).to.equal(5);
